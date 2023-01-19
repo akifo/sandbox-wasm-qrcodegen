@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>hello-wasm example</title>
+  </head>
+  <body>
+    <script type="module">
+      import init, {qrcodegen} from "./pkg/sandbox_wasm_qrcodegen.js";
+      init()
+        .then(() => {
+          const ret = qrcodegen("https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm")
+
+          const container = document.createElement('div')
+          container.innerHTML = ret
+          document.body.appendChild(container)
+        });
+    </script>
+  </body>
+</html>
